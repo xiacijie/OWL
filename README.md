@@ -1,6 +1,6 @@
 # OWL
 
-Inorder to run OWL.
+# Inorder to run OWL.
 
 STEP 1:  Modify run.sh
 
@@ -27,3 +27,7 @@ STEP 1:  Modify run.sh
  STEP 5: run `bash run.sh`
 
 You should see the shrikeBT instructions printed out. 
+
+# Inorder to call a java method. 
+  1. write and append the method configuration (`JNIMethodConfig`) in `OWLJNIConfig.hpp / cpp`.
+  2. Call the target java method through `jniClient->callMethod`
