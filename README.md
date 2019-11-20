@@ -13,7 +13,7 @@ STEP 1:  Modify run.sh
   
  STEP 2: Modify `OWLDeserializer.cpp` in `src/`
  
-  1. change the location of the file `OWL.log` to your own on line #5
+  1. change the location of the file `OWL.log` to your own file on line #5
   
  
  STEP 3: Modify `OWLJNIClient.cpp`
