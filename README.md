@@ -21,8 +21,9 @@ STEP 1:  Modify run.sh
   1. modify the class path on line #79 if necessary
   
   
- STEP 4: Add `Printer.java` in root directory to `com.ibm.wala.shrikeBT` and rebuild WALA. 
- 
+ STEP 4: Add `Printer.java` in root directory to `com.ibm.wala.shrikeBT` and rebuild WALA.  
+  Comment: Printer.java does nothing but prints all instructions to STDOUT, this should be replaced by the target class where the shrikeBT instructions should go into.
+  
  STEP 5: run `bash run.sh`
 
 You should see the shrikeBT instructions printed out. 
