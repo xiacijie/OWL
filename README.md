@@ -24,3 +24,5 @@ STEP 1:  Modify run.sh
  STEP 4: Add `Printer.java` in root directory to `com.ibm.wala.shrikeBT` and rebuild WALA. 
  
  STEP 5: run `bash run.sh`
+
+You should see the shrikeBT instructions printed out. 
