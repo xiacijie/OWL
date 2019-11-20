@@ -10,12 +10,21 @@ int main(){
 
     if (TR_OWLJNIClient::startJVM()){
         TR_OWLJNIClient *jniClient = TR_OWLJNIClient::getInstance();
+        
+        //deserilize 
         TR_OWLDeserializer* deserializer = new TR_OWLDeserializer();
-        vector<OWLInstruction> owlInstructions = deserializer->deserialize();
+        vector<OWLInstruction> owlInstructions = deserializer->getOWLInstructionList();
+        MethodInfo methodInfo = deserializer->getMethodInfo();
         delete deserializer;
 
+        //method signature
+        printf("%s\n", methodInfo.methodSignature);
+        
+        //constructing shrikeBT instructions
         TR_OWLShrikeBTConstructor* constructor = new TR_OWLShrikeBTConstructor(jniClient);
         vector<jobject> shrikeBTInstructions = constructor->constructShrikeBTInstructions(owlInstructions);
+
+        //analyse
         TR_OWLAnalyser * analyser = new TR_OWLAnalyser(jniClient);
         analyser->analyse(shrikeBTInstructions);
         

@@ -78,6 +78,9 @@ typedef enum ShrikeBTDispatch{
     STATIC 
 } ShrikeBTDispatch;
 
+typedef struct MethodInfo {
+    char methodSignature[LARGE_BUFFER_SIZE];
+} MethodInfo;
 
 typedef struct ConstantInstructionFields {
     char type[BUFFER_SIZE];
