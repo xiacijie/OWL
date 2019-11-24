@@ -1,6 +1,6 @@
 # OWL
 
-Inorder to run OWL.
+# In order to run OWL.
 
 STEP 1:  Modify run.sh
 
@@ -21,8 +21,13 @@ STEP 1:  Modify run.sh
   1. modify the class path on line #79 if necessary
   
   
- STEP 4: Add `Printer.java` in root directory to `com.ibm.wala.shrikeBT` and rebuild WALA. 
- 
+ STEP 4: Add `Printer.java` in root directory to `com.ibm.wala.shrikeBT` and rebuild WALA.  
+    Comment: Printer.java does nothing but prints all instructions to STDOUT, this should be replaced by the target class where the shrikeBT instructions should be passed into.
+  
  STEP 5: run `bash run.sh`
 
 You should see the shrikeBT instructions printed out. 
+
+# how to to call a java method. 
+  1. write and append the method configuration (`JNIMethodConfig`) in `OWLJNIConfig.hpp / cpp`.
+  2. Call the target java method through `jniClient->callMethod`
