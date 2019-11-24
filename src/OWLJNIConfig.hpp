@@ -53,6 +53,10 @@ extern const JNIMethodConfig InstanceofInstructionConfig;
 
 extern const JNIMethodConfig ArrayLengthInstructionConfig;
 
+extern const JNIMethodConfig ShiftInstructionConfig;
+
+extern const JNIMethodConfig SwitchInstructionConfig;
+
 extern const JNIMethodConfig PrinterConfig;
 
 
@@ -80,10 +84,16 @@ extern const JNIFieldConfig CMP_OperatorConfig;
 extern const JNIFieldConfig CMPL_OperatorConfig;
 extern const JNIFieldConfig CMPG_OperatorConfig;
 
+extern const JNIFieldConfig SHL_OperatorConfig;
+extern const JNIFieldConfig SHR_OperatorConfig;
+extern const JNIFieldConfig USHR_OperatorConfig;
+
 extern const JNIFieldConfig VIRTUAL_DispatchConfig;
 extern const JNIFieldConfig SPECIAL_DispatchConfig;
 extern const JNIFieldConfig INTERFACE_DispatchConfig;
 extern const JNIFieldConfig STATIC_DispatchConfig;
+
+
 
 
 #endif //OMR_OWLMETHODCONFIG_HPP

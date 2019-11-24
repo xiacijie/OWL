@@ -157,6 +157,20 @@ const JNIMethodConfig ArrayLengthInstructionConfig = {
         "()Lcom/ibm/wala/shrikeBT/ArrayLengthInstruction;"
 };
 
+const JNIMethodConfig ShiftInstructionConfig = {
+        true,
+        "com/ibm/wala/shrikeBT/ShiftInstruction",
+        "make",
+        "(Ljava/lang/String;Lcom/ibm/wala/shrikeBT/IShiftInstruction$Operator;)Lcom/ibm/wala/shrikeBT/ShiftInstruction;"
+};
+
+const JNIMethodConfig SwitchInstructionConfig = {
+        true,
+        "com/ibm/wala/shrikeBT/SwitchInstruction",
+        "make",
+        "([II)Lcom/ibm/wala/shrikeBT/SwitchInstruction;"
+};
+
 const JNIMethodConfig PrinterConfig = {
         true,
         "com/ibm/wala/shrikeBT/Printer",
@@ -284,6 +298,27 @@ const JNIFieldConfig CMPG_OperatorConfig = {
         "com/ibm/wala/shrikeBT/IComparisonInstruction$Operator",
         "CMPG",
         "Lcom/ibm/wala/shrikeBT/IComparisonInstruction$Operator;"
+};
+
+const JNIFieldConfig SHL_OperatorConfig = {
+        true,
+        "com/ibm/wala/shrikeBT/IShiftInstruction$Operator",
+        "SHL",
+        "Lcom/ibm/wala/shrikeBT/IShiftInstruction$Operator;"
+};
+
+const JNIFieldConfig SHR_OperatorConfig = {
+        true,
+        "com/ibm/wala/shrikeBT/IShiftInstruction$Operator",
+        "SHR",
+        "Lcom/ibm/wala/shrikeBT/IShiftInstruction$Operator;"
+};
+
+const JNIFieldConfig USHR_OperatorConfig = {
+        true,
+        "com/ibm/wala/shrikeBT/IShiftInstruction$Operator",
+        "USHR",
+        "Lcom/ibm/wala/shrikeBT/IShiftInstruction$Operator;"
 };
 
 const JNIFieldConfig VIRTUAL_DispatchConfig = {
