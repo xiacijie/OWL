@@ -21,7 +21,7 @@ STEP 4: set environment variables
   
 STEP 5: run `make all`
 
-STEP 6: ./OWL ./examples/add.log
+STEP 6: run `./OWL ./examples/add.log`
 
 You should see the shrikeBT instructions printed out. 
 
