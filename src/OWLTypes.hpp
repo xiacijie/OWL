@@ -14,12 +14,14 @@ extern char *const TYPE_double;
 extern char *const TYPE_char;
 extern char *const TYPE_byte;
 extern char *const TYPE_void;
+extern char *const TYPE_null;
 extern char *const TYPE_boolean;
 extern char *const TYPE_Object;
+extern char *const TYPE_String;
 
 typedef enum ShrikeBTInstruction
 {
-    NOT_INSTRUCTION, // indicates this is not a shrikeBT instruction
+    NOT_SHRIKE_BT_INSTRUCTION, // indicates this is not a shrikeBT instruction
 
     SHRIKE_BT_CONSTANT,
     SHRIKE_BT_STORE,
@@ -43,7 +45,8 @@ typedef enum ShrikeBTInstruction
     SHRIKE_BT_INSTANCE_OF,
     SHRIKE_BT_ARRAY_LENGTH,
     SHRIKE_BT_SHIFT, 
-    SHRIKE_BT_SWITCH
+    SHRIKE_BT_SWITCH,
+    SHRIKE_BT_CHECK_CAST
 
 } ShrikeBTInstruction;
 
@@ -97,8 +100,9 @@ typedef enum ShrikeBTDispatch
 } ShrikeBTDispatch;
 
 typedef struct MethodInfo
-{
-    char methodSignature[LARGE_BUFFER_SIZE];
+{   char className[LARGE_BUFFER_SIZE];
+    char methodName[LARGE_BUFFER_SIZE];
+    char signature[LARGE_BUFFER_SIZE];
 } MethodInfo;
 
 typedef struct ConstantInstructionFields
@@ -240,6 +244,11 @@ typedef struct ArrayLengthInstructionFields
 {
 } ArrayLengthInstructionFields;
 
+typedef struct CheckCastInstructionFields
+{
+    char type[LARGE_BUFFER_SIZE];
+} CheckCastInstructionFields;
+
 typedef union ShrikeBTInstructionFieldsUnion {
     ConstantInstructionFields constantInstructionFields;
     StoreInstructionFields storeInstructionFields;
@@ -264,6 +273,7 @@ typedef union ShrikeBTInstructionFieldsUnion {
     ArrayLengthInstructionFields arrayLengthInstructionFields;
     ShiftInstructionFields shiftInstructionFields;
     SwitchInstructionFields switchInstructionFields;
+    CheckCastInstructionFields checkCastInstructionFields;
 } ShrikeBTInstructionFieldsUnion;
 
 /*** indicates how the offset of branch instruction should be adjusted ***/
@@ -275,17 +285,14 @@ typedef enum BranchTargetLabelAdjustType
 } BranchTargetLabelAdjustType;
 
 /*** This structure contains all necessary information to do the OMR to ShrikeBT mapping ***/
-typedef struct OWLInstruction
+typedef struct TranslationUnit
 {
-    /*** Required ***/
-    bool isShrikeBTInstruction; //if false, this indicates it can be an OMR treetop, BBStart, BBEnd or an eliminated OMR instruction
-    uint32_t omrGlobalIndex;
-
+    ShrikeBTInstruction instruction; // if NOT_SHRIKE_BT_INSTRUCTION, this can be an OMR treetop or BBStart. 
+    uint32_t omrGlobalIndex; 
     uint32_t shrikeBTOffset; // should be set to 0 initially and let the adjust function assign the correct offset
     BranchTargetLabelAdjustType branchTargetLabelAdjustType;
     int32_t branchTargetLabelAdjustAmount; // should be set to 0 if not using BY_VALUE adjust type
     ShrikeBTInstructionFieldsUnion instructionFieldsUnion;
-    ShrikeBTInstruction instruction;
-} OWLInstruction;
+} TranslationUnit;
 
 #endif

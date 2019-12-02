@@ -10,6 +10,7 @@
 #include "OWLJNIClient.hpp"
 #include "OWLTypes.hpp"
 
+
 class TR_OWLShrikeBTConstructor
 {
 private:
@@ -19,7 +20,7 @@ public:
     TR_OWLShrikeBTConstructor(TR_OWLJNIClient* jniClient);
     ~TR_OWLShrikeBTConstructor();
 
-    std::vector<jobject> constructShrikeBTInstructions(std::vector<OWLInstruction> owlInstructions);
+    std::vector<jobject> constructShrikeBTInstructions(std::vector<TranslationUnit> owlInstructions);
 
     /*** helper methods ***/
     jobject Integer(int32_t i);
@@ -60,6 +61,7 @@ public:
     jobject ArrayLengthInstruction();
     jobject ShiftInstruction(char* type, ShrikeBTShiftOperator op);
     jobject SwitchInstruction(int* casesAndLabels, int length, int defaultLabel);
+    jobject CheckCastInstruction(char* type);
 
 };
 #endif 

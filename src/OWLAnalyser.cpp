@@ -6,6 +6,6 @@ TR_OWLAnalyser::TR_OWLAnalyser(TR_OWLJNIClient* jniClient){
 }
 
 void TR_OWLAnalyser::analyse(std::vector<jobject> instructions) {
-    jobjectArray instructionArray = _jniClient->constructObjectArray(InstructionClassName, instructions);
-    _jniClient->callMethod(PrinterConfig, NULL, 1, instructionArray);
+    jobjectArray instructionArray = _jniClient->newObjectArray(InstructionClassName, &instructions[0], instructions.size());
+    _jniClient->callMethod(Printer_print_Config, NULL, 1, instructionArray);
 }
