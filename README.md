@@ -17,8 +17,8 @@ STEP 3: Add `Printer.java` in root directory to `com.ibm.wala.shrikeBT` and rebu
     Comment: Printer.java does nothing but prints all instructions to stdout, this should be replaced by analyser where the shrikeBT instructions should be passed into.
   
 STEP 4: set environment variables
-  1. export WALA_HOME=/Users/jackxia/Project/IBM/WALA (replace by yours)
-  2. export DYLD_LIBRARY_PATH=/Library/Java/JavaVirtualMachines/adoptopenjdk-12.jdk/Contents/Home/lib:/Library/Java/JavaVirtualMachines/adoptopenjdk-12.jdk/Contents/Home/lib/server ( replace by yours)
+  1. `export WALA_HOME=/Users/jackxia/Project/IBM/WALA` (replace by yours)
+  2. `export DYLD_LIBRARY_PATH=/Library/Java/JavaVirtualMachines/adoptopenjdk-12.jdk/Contents/Home/lib:/Library/Java/JavaVirtualMachines/adoptopenjdk-12.jdk/Contents/Home/lib/server` ( replace by yours)
   
 STEP 5: run `make all`
 
