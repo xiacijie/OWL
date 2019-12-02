@@ -45,7 +45,7 @@ int main(int argc, char* argv[]){
         //analyse
         printf("======== ANALYSE ========\n");
         TR_OWLAnalyser * analyser = new TR_OWLAnalyser(jniClient);
-        analyser->analyse(shrikeBTInstructions);
+        analyser->analyse(&shrikeBTInstructions[0], shrikeBTInstructions.size());
         
         delete verifier;
         delete deserializer;
