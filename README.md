@@ -13,7 +13,7 @@ STEP 2: Modify `OWLJNIClient.cpp`
   1. modify the class path on line #79 if necessary
   
 STEP 3: Add `Printer.java` in root directory to `com.ibm.wala.shrikeBT` and rebuild WALA.  
-    Comment: Printer.java does nothing but prints all instructions to STDOUT, this should be replaced by the target class where the shrikeBT instructions should be passed into.
+    Comment: Printer.java does nothing but prints all instructions to stdout, this should be replaced by analyser where the shrikeBT instructions should be passed into.
   
 STEP 4: set environment variables
   1. export WALA_HOME=/Users/jackxia/Project/IBM/WALA (replace by yours)
