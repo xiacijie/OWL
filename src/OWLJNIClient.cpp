@@ -86,7 +86,6 @@ bool TR_OWLJNIClient::startJVM(){
         jint rc = JNI_CreateJavaVM(&_jvm, (void**)&_env, &vm_args);  
         delete[] options;
         if (rc == JNI_OK){
-            printf("===========Successfully start JVM!=============\n");
             _isJvmRunning = true;
             return true;
         }
@@ -102,7 +101,6 @@ void TR_OWLJNIClient::destroyJVM() {
     }
 
     if (_isJvmRunning){
-        printf("========Successfully destroy JVM!=======\n");
         _jvm->DestroyJavaVM();
         _isJvmRunning = false;
         _isJvmDestroyed = true;

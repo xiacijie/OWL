@@ -1,20 +1,24 @@
-#include "src/OWLTypes.hpp"
-#include "src/OWLAnalyser.hpp"
-#include "src/OWLJNIClient.hpp"
-#include "src/OWLShrikeBTConstructor.hpp"
-#include "src/OWLDeserializer.hpp"
-#include "src/OWLVerifier.hpp"
+#include "OWLTypes.hpp"
+#include "OWLAnalyser.hpp"
+#include "OWLJNIClient.hpp"
+#include "OWLShrikeBTConstructor.hpp"
+#include "OWLDeserializer.hpp"
+#include "OWLVerifier.hpp"
 #include <vector>
 
 using namespace std;
-int main(){
+int main(int argc, char* argv[]){
+    if (argc < 2) {
+        printf("Format: './OWL <example>.log' \n");
+        exit(1);
+    }
 
     if (TR_OWLJNIClient::startJVM()){
         TR_OWLJNIClient *jniClient = TR_OWLJNIClient::getInstance();
         
         //deserilize 
         TR_OWLDeserializer* deserializer = new TR_OWLDeserializer();
-        deserializer->deserialize("/Users/jackxia/Project/IBM/openj9-openjdk-jdk13/OWL/OWL.log");
+        deserializer->deserialize(argv[1]);
         vector<TranslationUnit> translationUnits = deserializer->getTranslationUnits();
         MethodInfo methodInfo = deserializer->getMethodInfo();
         
@@ -49,7 +53,7 @@ int main(){
         delete constructor;
     }
     else{
-        printf("JVM cannot be start! Program termniates!\n");
+        printf("JVM cannot be start! Program terminates!\n");
         exit(1);
     }
     TR_OWLJNIClient::destroyJVM();
