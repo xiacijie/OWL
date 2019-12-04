@@ -10,6 +10,13 @@ const char* ExceptionHandlerClassName = "com/ibm/wala/shrikeBT/ExceptionHandler"
 
 /***** Method Config ******/
 
+const JNIMethodConfig testRunner_Config = {
+    true,
+    "com/ibm/wala/owl/OWLTestRunner",
+    "run",
+    "([Lcom/ibm/wala/shrikeBT/IInstruction;)V"
+};
+
 const JNIMethodConfig ConstantInstruction_make_Config = {
     true,
     "com/ibm/wala/shrikeBT/ConstantInstruction",

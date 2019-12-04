@@ -1,8 +1,8 @@
 CC = g++
-INCLUDE = -I/Library/Java/JavaVirtualMachines/adoptopenjdk-12.jdk/Contents/Home/include -I/Library/Java/JavaVirtualMachines/adoptopenjdk-12.jdk/Contents/Home/include/darwin
+INCLUDE = -I$(JAVA_HOME)/include -I$(JAVA_HOME)/include/darwin
 CPPFLAGS = -w -std=c++11 $(INCLUDE)
-LDLIBS = -ljli -ljvm
-LDFLAGS = -L/Library/Java/JavaVirtualMachines/adoptopenjdk-12.jdk/Contents/Home/lib -L/Library/Java/JavaVirtualMachines/adoptopenjdk-12.jdk/Contents/Home/lib/server
+LDLIBS = -ljvm
+LDFLAGS = -L$(JAVA_HOME)/jre/lib -L$(JAVA_HOME)/jre/lib/server -Wl,-rpath -Wl,$(JAVA_HOME)/jre/lib/server
 SOURCES = $(wildcard src/*.cpp)
 OBJECTS = $(SOURCES:%.c=%.o)
 

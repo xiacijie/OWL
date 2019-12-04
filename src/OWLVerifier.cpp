@@ -38,9 +38,7 @@ bool TR_OWLVerifier::verify(jobject* shrikeBTInstructions, uint64_t size, bool i
         vars
     );
 
-    bool status = _jniClient->callMethod(Verifier_verify_Config, verifier, 0);
-
-    return status;
+    return _jniClient->callMethod(Verifier_verify_Config, verifier, 0);
 }
 
 
