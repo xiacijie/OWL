@@ -22,9 +22,13 @@ STEP 4: set environment variables
   
 STEP 5: run `make all`
 
-STEP 6: run `./OWL ./examples/add.log`
+STEP 6: build WALA integration
+  1. cd OWLJava/OWLLoader
+  2. mvn clean install
+  
+STEP 7: run `./OWL ./examples/add.log`
 
-You should see the shrikeBT instructions printed out. 
+You should see a call graph printed out.
 
 # how to to call a java method. 
   1. write and append the method configuration (`JNIMethodConfig`) in `OWLJNIConfig.hpp / cpp`.

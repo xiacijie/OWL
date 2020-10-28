@@ -77,7 +77,7 @@ bool TR_OWLJNIClient::startJVM(){
         JavaVMOption* options = new JavaVMOption[1];   // JVM invocation options
         char classpath[1024];
         char *walaHome = std::getenv("WALA_HOME");
-        sprintf(classpath, "-Djava.class.path=%s/com.ibm.wala.util/build/classes/java/main:%s/com.ibm.wala.shrike/build/classes/java/main:%s/com.ibm.wala.core/build/classes/java/main:%s/com.ibm.wala.cast/build/classes/java/main", walaHome, walaHome, walaHome, walaHome);
+        sprintf(classpath, "-Djava.class.path=%s/com.ibm.wala.util/build/classes/java/main:%s/com.ibm.wala.shrike/build/classes/java/main:%s/com.ibm.wala.core/build/classes/java/main:%s/com.ibm.wala.core/dat:%s/com.ibm.wala.cast/build/classes/java/main:./OWLJava/OWLLoader/target/classes/", walaHome, walaHome, walaHome, walaHome, walaHome);
         options[0].optionString = classpath;   // where to find java .class
         vm_args.version = JNI_VERSION_1_8;             // minimum Java version
         vm_args.nOptions = 1;                          // number of options

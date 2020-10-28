@@ -7,5 +7,5 @@ TR_OWLAnalyser::TR_OWLAnalyser(TR_OWLJNIClient* jniClient){
 
 void TR_OWLAnalyser::analyse(jobject* instructions, uint64_t size) {
     jobjectArray instructionArray = _jniClient->newObjectArray(InstructionClassName, &instructions[0], size);
-    _jniClient->callMethod(Printer_print_Config, NULL, 1, instructionArray);
+    _jniClient->callMethod(testRunner_Config, NULL, 1, instructionArray);
 }

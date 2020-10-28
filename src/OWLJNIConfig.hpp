@@ -12,6 +12,8 @@ extern const char* ExceptionHandlerClassName;
 
 /***** Method Config ******/
 
+extern const JNIMethodConfig testRunner_Config;
+
 extern const JNIMethodConfig ConstantInstruction_make_Config;
 
 extern const JNIMethodConfig StoreInstruction_make_Config;
